@@ -4,7 +4,7 @@ const usersRoutes = require("./routes/users");
 const traceRoutes = require("./routes/trace");
 const jwtRoutes = require("./routes/jwt");
 const app = express();
-const port = 3000;
+const port = 8000;
 
 app.use(express.json());
 
