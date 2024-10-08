@@ -7,15 +7,12 @@ const convertObjectToString = (object) => {
 		.join('\n');
 };
 
-router.get('/api/trace/', (req, res) => {
-	res.status(405).send("Method not allowed");
-});
 
-router.trace('/api/trace/', (req, res) => {
+router.get('/api/trace/', (req, res) => {
 	res.send(`TRACE HTTP/1.1\n${convertObjectToString(req.headers)}\n\n${JSON.stringify(req.body)}`);
 });
 
-router.trace('/api/trace/secure/', (req, res) => {
+router.get('/api/trace/secure/', (req, res) => {
 	if(req.headers["authorization"] != undefined) {
 		res.send(`TRACE HTTP/1.1\n${convertObjectToString(req.headers)}\n\n${JSON.stringify(req.body)}`);
 	} else {
