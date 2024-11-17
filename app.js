@@ -5,7 +5,7 @@ const traceRoutes = require("./routes/trace");
 const jwtRoutes = require("./routes/jwt");
 const bypass403Routes = require("./routes/bypass_403")
 const app = express();
-const port = 8200;
+const port = 8000;
 
 app.use(express.json());
 
