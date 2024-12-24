@@ -50,6 +50,7 @@ router.get("/api/cors/regex", (req, res) => {
   console.log("Origin: " + origin + " | Host:" + host);
   if (origin.startsWith(host) || origin.endsWith(host)) {
     res.set("Access-Control-Allow-Origin", origin);
+    console.log("Valid regex found");
   }
   if (req.query.methods) {
     res.set("Access-Control-Allow-Methods", "POST");
