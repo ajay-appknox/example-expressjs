@@ -3,9 +3,10 @@ const authRoutes = require("./routes/auth");
 const usersRoutes = require("./routes/users");
 const traceRoutes = require("./routes/trace");
 const jwtRoutes = require("./routes/jwt");
-const bypass403Routes = require("./routes/bypass_403")
+const bypass403Routes = require("./routes/bypass_403");
+const corsRoutes = require("./routes/cors");
 const app = express();
-const port = 8000;
+const port = 9001;
 
 app.use(express.json());
 
@@ -14,6 +15,7 @@ app.use(usersRoutes);
 app.use(traceRoutes);
 app.use(jwtRoutes);
 app.use(bypass403Routes);
+app.use(corsRoutes);
 
 app.use((req, res, next) => {
   console.log(req.url);
