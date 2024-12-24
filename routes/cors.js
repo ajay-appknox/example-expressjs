@@ -45,8 +45,9 @@ router.get("/api/cors/null", (req, res) => {
 });
 
 router.get("/api/cors/regex", (req, res) => {
+  const host = req.get("Host");
   const origin = req.get("Origin");
-  if (origin.startsWith("cors.com") || origin.endsWith("cors.com")) {
+  if (origin.startsWith(host) || origin.endsWith(host)) {
     res.set("Access-Control-Allow-Origin", origin);
   }
   if (req.query.methods) {
