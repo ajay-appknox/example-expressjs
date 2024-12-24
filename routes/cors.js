@@ -1,11 +1,11 @@
 const app = require("express");
 const router = app.Router();
 
-router.get("/api/cors/regular", (req, res) => {
+router.get("/cors/regular", (req, res) => {
   res.status(200).send("Welcome to CORS Server!");
 });
 
-router.get("/api/cors/wildcard", (req, res) => {
+router.get("/cors/wildcard", (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
 
   if (req.query.methods) {
@@ -14,7 +14,7 @@ router.get("/api/cors/wildcard", (req, res) => {
   res.status(200).send("Wildcard");
 });
 
-router.get("/api/cors/reflected", (req, res) => {
+router.get("/cors/reflected", (req, res) => {
   const origin = req.get("Origin");
   if (origin === "appknox.com") {
     res.set("Access-Control-Allow-Origin", origin);
@@ -30,7 +30,7 @@ router.get("/api/cors/reflected", (req, res) => {
   res.status(200).send("Reflected");
 });
 
-router.get("/api/cors/null", (req, res) => {
+router.get("/cors/null", (req, res) => {
   const origin = req.get("Origin");
   if (origin === "null") {
     res.set("Access-Control-Allow-Origin", "null");
@@ -44,7 +44,7 @@ router.get("/api/cors/null", (req, res) => {
   res.status(200).send("Null");
 });
 
-router.get("/api/cors/regex", (req, res) => {
+router.get("/cors/regex", (req, res) => {
   const origin = req.get("Origin");
   if (origin.startsWith("cors.com") || origin.endsWith("cors.com")) {
     res.set("Access-Control-Allow-Origin", origin);
@@ -58,7 +58,7 @@ router.get("/api/cors/regex", (req, res) => {
   res.status(200).send("Regex");
 });
 
-router.get("/api/cors/all_checks", (req, res) => {
+router.get("/cors/all_checks", (req, res) => {
   const origin = req.get("Origin");
   res.set("Access-Control-Allow-Origin", origin);
   res.set("Access-Control-Allow-Methods", "POST");
@@ -67,7 +67,7 @@ router.get("/api/cors/all_checks", (req, res) => {
 });
 
 // All checks case-insensitive route
-router.get("/api/cors/all_checks_ci", (req, res) => {
+router.get("/cors/all_checks_ci", (req, res) => {
   const origin = req.get("Origin");
   res.set("access-control-allow-origin", origin);
   res.set("Access-Control-Allow-Methods", "post");
