@@ -6,7 +6,7 @@ const jwtRoutes = require("./routes/jwt");
 const bypass403Routes = require("./routes/bypass_403");
 const corsRoutes = require("./routes/cors");
 const app = express();
-const port = 9001;
+const port = 8000;
 
 app.use(express.json());
 
