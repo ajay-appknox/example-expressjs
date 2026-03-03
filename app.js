@@ -6,6 +6,7 @@ const jwtRoutes = require("./routes/jwt");
 const bypass403Routes = require("./routes/bypass_403");
 const corsRoutes = require("./routes/cors");
 const cspRoutes = require("./routes/csp");
+const commandInjectionRoutes = require("./routes/command_injection");
 const app = express();
 const port = 8000;
 
@@ -18,6 +19,7 @@ app.use(jwtRoutes);
 app.use(bypass403Routes);
 app.use(corsRoutes);
 app.use(cspRoutes);
+app.use(commandInjectionRoutes);
 
 app.use((req, res, next) => {
   console.log(req.url);
